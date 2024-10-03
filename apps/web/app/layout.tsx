@@ -1,7 +1,9 @@
-import type { Metadata } from "next";
 import localFont from "next/font/local";
-import "./globals.css";
-
+import "@repo/ui/globals.css";
+import { ThemeSwitcher } from "@repo/ui/components/ui/theme-switcher"
+import { ThemeProvider } from "@repo/ui/components/ui/providers"
+import { cn } from "@repo/ui/lib/utils"
+import { Metadata, Viewport } from "next"
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
   variable: "--font-geist-sans",
@@ -22,9 +24,25 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable}`}>
-        {children}
+    <html lang="en" suppressHydrationWarning>
+      <body className={cn(
+            "min-h-screen bg-background font-sans antialiased"
+          )}>
+      <ThemeProvider
+        attribute="class"
+        defaultTheme="system"
+        enableSystem
+        disableTransitionOnChange
+      >
+        <div vaul-drawer-wrapper="">
+              <div className="relative flex min-h-screen flex-col bg-background">
+                {children}
+              </div>
+            </div>
+        <ThemeSwitcher />
+
+      </ThemeProvider>
+
       </body>
     </html>
   );
