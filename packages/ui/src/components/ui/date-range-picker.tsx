@@ -4,7 +4,8 @@ import * as React from "react"
 import { addDays, format } from "date-fns"
 import { DateRange } from "react-day-picker"
 
-import { cn } from "@repo/ui/lib/utils"
+import { cn } from "@repo/ui/components/lib/utils";
+
 import { Button } from "@repo/ui/components/ui/button"
 import { Calendar } from "@repo/ui/components/ui/calendar"
 import {

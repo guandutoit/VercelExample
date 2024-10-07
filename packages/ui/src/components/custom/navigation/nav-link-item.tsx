@@ -1,9 +1,8 @@
 "use client";
 
-import { cn } from "@repo/ui/lib/utils";
+import { cn } from "@repo/ui/components/lib/utils"
 import Link from "next/link";
 import { usePathname } from 'next/navigation'
-
 
 function activeClassName({ isActive }: { isActive: boolean }) {
   return isActive ? "text-foreground" : "text-muted-foreground";

@@ -4,22 +4,19 @@
   "private": true,
   "exports": {
     "./globals.css": "./src/globals.css",
-    "./postcss.config": "./postcss.config.mjs",
-    "./tailwind.config": "./tailwind.config.ts",
-    "./lib/*": "./src/lib/*.ts",
-    "./button": "./src/button.tsx",
     "./components/*": [
       "./src/components/*.tsx",
       "./src/components/*.ts"
     ],
-    "./hook/*": [
-      "./src/hook/*.tsx",
-      "./src/hook/*.ts"
-    ],
-    "./registry/*": [
-      "./src/registry/*.tsx",
-      "./src/registry/*.ts"
+    "./button": "./src/button.tsx",
+    "./postcss.config": "./postcss.config.mjs",
+    "./tailwind.config": "./tailwind.config.ts",
+    "./lib/*": "./src/lib/*.ts",
+    "./custom/*":[
+      "./src/components/custom/*.ts",
+      "./src/components/custom/*.tsx"
     ]
+
   },
   "scripts": {
     "lint": "eslint . --max-warnings 0",

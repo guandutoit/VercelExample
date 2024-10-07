@@ -12,7 +12,7 @@ import {
 } from "@repo/ui/components/ui/alert-dialog"
 import { CalendarDateRangePicker } from "@repo/ui/components/ui/date-range-picker"
 import { DemoDatePicker } from "@repo/ui/components/ui/date-picker"
-import { cn } from "@repo/ui/lib/utils"
+import { cn } from "@repo/ui/components/lib/utils"
 import { Main } from "next/document";
 
 
