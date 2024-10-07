@@ -1,31 +1,30 @@
-import * as React from "react";
-import { Slot } from "@radix-ui/react-slot";
-import { cva, type VariantProps } from "class-variance-authority";
+import * as React from "react"
+import { Slot } from "@radix-ui/react-slot"
+import { cva, type VariantProps } from "class-variance-authority"
 
 import { cn } from "@repo/ui/lib/utils";
 
 const buttonVariants = cva(
-  "ui-inline-flex ui-items-center ui-justify-center ui-whitespace-nowrap ui-rounded-md ui-text-sm ui-font-medium ui-ring-offset-white ui-transition-colors focus-visible:ui-outline-none focus-visible:ui-ring-2 focus-visible:ui-ring-slate-950 focus-visible:ui-ring-offset-2 disabled:ui-pointer-events-none disabled:ui-opacity-50 dark:ui-ring-offset-slate-950 dark:focus-visible:ui-ring-slate-300",
+  "inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50",
   {
     variants: {
       variant: {
         default:
-          "ui-bg-slate-900 ui-text-slate-50 hover:ui-bg-slate-900/90 dark:ui-bg-slate-50 dark:ui-text-slate-900 dark:hover:ui-bg-slate-50/90",
+          "bg-primary text-primary-foreground shadow hover:bg-primary/90",
         destructive:
-          "ui-bg-red-500 ui-text-slate-50 hover:ui-bg-red-500/90 dark:ui-bg-red-900 dark:ui-text-slate-50 dark:hover:ui-bg-red-900/90",
+          "bg-destructive text-destructive-foreground shadow-sm hover:bg-destructive/90",
         outline:
-          "ui-border ui-border-slate-200 ui-bg-white hover:ui-bg-slate-100 hover:ui-text-slate-900 dark:ui-border-slate-800 dark:ui-bg-slate-950 dark:hover:ui-bg-slate-800 dark:hover:ui-text-slate-50",
+          "border border-input bg-background shadow-sm hover:bg-accent hover:text-accent-foreground",
         secondary:
-          "ui-bg-slate-100 ui-text-slate-900 hover:ui-bg-slate-100/80 dark:ui-bg-slate-800 dark:ui-text-slate-50 dark:hover:ui-bg-slate-800/80",
-        ghost:
-          "hover:ui-bg-slate-100 hover:ui-text-slate-900 dark:hover:ui-bg-slate-800 dark:hover:ui-text-slate-50",
-        link: "ui-text-slate-900 ui-underline-offset-4 hover:ui-underline dark:ui-text-slate-50",
+          "bg-secondary text-secondary-foreground shadow-sm hover:bg-secondary/80",
+        ghost: "hover:bg-accent hover:text-accent-foreground",
+        link: "text-primary underline-offset-4 hover:underline",
       },
       size: {
-        default: "ui-h-10 ui-px-4 ui-py-2",
-        sm: "ui-h-9 ui-rounded-md ui-px-3",
-        lg: "ui-h-11 ui-rounded-md ui-px-8",
-        icon: "ui-h-10 ui-w-10",
+        default: "h-9 px-4 py-2",
+        sm: "h-8 rounded-md px-3 text-xs",
+        lg: "h-10 rounded-md px-8",
+        icon: "h-9 w-9",
       },
     },
     defaultVariants: {
@@ -33,26 +32,26 @@ const buttonVariants = cva(
       size: "default",
     },
   }
-);
+)
 
 export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement>,
     VariantProps<typeof buttonVariants> {
-  asChild?: boolean;
+  asChild?: boolean
 }
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   ({ className, variant, size, asChild = false, ...props }, ref) => {
-    const Comp = asChild ? Slot : "button";
+    const Comp = asChild ? Slot : "button"
     return (
       <Comp
         className={cn(buttonVariants({ variant, size, className }))}
         ref={ref}
         {...props}
       />
-    );
+    )
   }
-);
-Button.displayName = "Button";
+)
+Button.displayName = "Button"
 
-export { Button, buttonVariants };
+export { Button, buttonVariants }
